@@ -4,19 +4,23 @@ const data = {
   email: '',
   message: '',
 };
-if (localStorage.getItem('feedback-form-state')) {
-  data.email = JSON.parse(localStorage.getItem('feedback-form-state')).email;
-  data.message = JSON.parse(
-    localStorage.getItem('feedback-form-state')
-  ).message;
-};
+// if (localStorage.getItem('feedback-form-state')) {
+//   data.email = JSON.parse(localStorage.getItem('feedback-form-state')).email;
+//   data.message = JSON.parse(
+//     localStorage.getItem('feedback-form-state')
+//   ).message;
+// };
 form.addEventListener('input', throttle(inputHandler, 500));
 form.addEventListener('submit', submitHandler);
 if (JSON.parse(localStorage.getItem('feedback-form-state'))) {
   document.querySelector('input').value = JSON.parse(
     localStorage.getItem('feedback-form-state')
   ).email;
+    data.email = JSON.parse(localStorage.getItem('feedback-form-state')).email;
   document.querySelector('textarea').value = JSON.parse(
+    localStorage.getItem('feedback-form-state')
+  ).message;
+    data.message = JSON.parse(
     localStorage.getItem('feedback-form-state')
   ).message;
 };
